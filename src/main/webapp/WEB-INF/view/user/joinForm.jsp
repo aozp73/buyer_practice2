@@ -2,7 +2,6 @@
 
     <%@ include file="../layout/header.jsp" %>
         <h1>회원가입 페이지</h1>
-        <hr>
         <form action="/join" method="post">
             <input type="text" name="username" placeholder="Enter username"><br>
             <input type="password" name="password" placeholder="Enter password"><br>

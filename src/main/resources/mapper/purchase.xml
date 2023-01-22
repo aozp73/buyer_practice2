@@ -5,4 +5,28 @@
 
 <mapper namespace="shop.mtcoding.buyer4.model.PurchaseRepository">
 
+  <insert id="insert">
+    insert into purchase_tb(user_id, product_id, count, created_at) values(#{userId}, #{productId}, #{count}, now())
+  </insert>
+
+  <select id="findByUserId" resultType="shop.mtcoding.buyer4.dto.PurchaseAllDto">
+    select pu.id, u.username, pr.name, pu.count from
+    (select * from purchase_tb  where user_id = #{id}) pu
+
+    inner join user_tb u
+    on pu.user_id = u.id
+
+    inner join product_tb pr
+    on pu.product_id = pr.id;
+
+  </select>
+
+  <select id="findById" resultType="shop.mtcoding.buyer4.model.Purchase">
+    select * from purchase_tb where id = #{id}
+  </select>
+
+  <delete id="deleteById">
+    delete from purchase_tb where id = #{id}
+  </delete>
+
 </mapper>
