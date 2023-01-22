@@ -10,6 +10,10 @@
                     values(#{username},#{password},#{email},now())
     </insert>
 
+    <select id="findByUserIdAndPassword" resultType="shop.mtcoding.buyer4.model.User">
+        select * from user_tb where username = #{username} and password = #{password}
+    </select>
+
     <select id="findAll" resultType="shop.mtcoding.buyer4.model.User">
         select * from user_tb
     </select>

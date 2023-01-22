@@ -10,9 +10,11 @@ public interface UserRepository {
     public int insert(@Param("username") String username, @Param("password") String password,
             @Param("email") String email);
 
-    public List<Product> findAll();
+    public User findByUserIdAndPassword(@Param("username") String username, @Param("password") String password);
 
-    public Product findById(int id);
+    public List<User> findAll();
+
+    public User findById(int id);
 
     public int updateById(@Param("id") String id, @Param("password") String password);
 
